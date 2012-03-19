@@ -1,11 +1,11 @@
-require File.dirname(__FILE__) + '/../../spec_helper'
+require File.expand_path(__FILE__ + '/../../../spec_helper')
 
 describe RubyWarrior::Abilities::Rescue do
   before(:each) do
     @warrior = RubyWarrior::Units::Warrior.new
     @rescue = RubyWarrior::Abilities::Rescue.new(@warrior)
   end
-  
+
   it "should rescue captive" do
     captive = RubyWarrior::Units::Captive.new
     captive.position = stub
@@ -15,7 +15,7 @@ describe RubyWarrior::Abilities::Rescue do
     @rescue.perform
     captive.position.should be_nil
   end
-  
+
   it "should do nothing to other unit if not bound" do
     unit = RubyWarrior::Units::Base.new
     unit.position = stub
@@ -25,7 +25,7 @@ describe RubyWarrior::Abilities::Rescue do
     @rescue.perform
     unit.position.should_not be_nil
   end
-  
+
   it "should release other unit when bound" do
     unit = RubyWarrior::Units::Base.new
     unit.bind

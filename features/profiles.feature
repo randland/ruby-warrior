@@ -2,7 +2,7 @@ Feature: Manage Profiles
   In order to play ruby warrior
   As a player
   I want to create and choose profiles
-  
+
   Background:
     Given no profile at "tmp"
 
@@ -36,7 +36,7 @@ Feature: Manage Profiles
     Then I should see "generated"
     When I run rubywarrior
     Then I should see "Joe - beginner - level 1 - score 0"
-  
+
   Scenario: Auto select profile at given path
     Given a profile named "Joe" on "beginner"
     And current directory is "tmp/rubywarrior/joe-beginner"

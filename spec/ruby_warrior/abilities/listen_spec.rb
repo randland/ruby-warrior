@@ -1,4 +1,4 @@
-require File.dirname(__FILE__) + '/../../spec_helper'
+require File.expand_path(__FILE__ + '/../../../spec_helper')
 
 describe RubyWarrior::Abilities::Listen do
   before(:each) do
@@ -9,7 +9,7 @@ describe RubyWarrior::Abilities::Listen do
     @floor.add(@warrior, 0, 0)
     @listen = RubyWarrior::Abilities::Listen.new(@warrior)
   end
-  
+
   it "should return an array of spaces which have units on them besides main unit" do
     @floor.add(RubyWarrior::Units::Base.new, 0, 1)
     @listen.perform.should have(1).record

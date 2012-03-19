@@ -2,10 +2,10 @@ Feature: Play levels
   In order to play ruby warrior
   As a player
   I want to advance through levels or retry them
-  
+
   Background:
     Given no profile at "tmp"
-  
+
   Scenario: Pass first level, fail second level
     Given a profile named "Joe" on "beginner"
     When I copy fixture "walking_player.rb" to "tmp/rubywarrior/joe-beginner/player.rb"
@@ -17,7 +17,7 @@ Feature: Play levels
     And I choose "Joe - beginner - level 2" for "profile"
     And I answer "y" to "clues"
     Then I should see "warrior.feel.empty?"
-  
+
   Scenario: Retry first level
     Given a profile named "Joe" on "beginner"
     When I copy fixture "walking_player.rb" to "tmp/rubywarrior/joe-beginner/player.rb"
@@ -27,7 +27,7 @@ Feature: Play levels
     Then I should see "current level"
     When I run rubywarrior
     Then I should see "Joe - beginner - level 1"
-  
+
   Scenario: Replay levels as epic when finishing last level with grades
     When I copy fixture "short-tower" to "towers/short"
     Given a profile named "Bill" on "short"
@@ -48,7 +48,7 @@ Feature: Play levels
     Then I should see "grade for this tower"
     When I run rubywarrior
     Then I should see "Bill - short - first score 34 - epic score 34"
-  
+
   Scenario: Continue normal mode after epic mode when level added
     When I copy fixture "short-tower" to "towers/short"
     Given a profile named "Bob" on "short"
